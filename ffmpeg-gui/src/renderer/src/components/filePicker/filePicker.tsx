@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 import styles from '../button.module.css'
 import { PlusIcon } from '../icons/plusIcon'
+import { Virtuoso } from 'react-virtuoso'
 
 interface filePropsType {
   selectedFiles?: string[]

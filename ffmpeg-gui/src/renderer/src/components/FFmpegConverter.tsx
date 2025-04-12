@@ -6,30 +6,30 @@ import styles from './FFmpegConverter.module.css'
 import { HorizontalLine } from './horizontalLine/horizontalLine'
 import ScrollAreaComponent from './scrollArea/scrollArea'
 
-interface configType {
-  rotate?: {
-    enabled: boolean
-  }
-  compress?: {
-    enabled: boolean
-  }
-  extension: {
-    extension: 'jpg' | 'png' | 'webp'
-  }
-}
+// interface configType {
+//   rotate?: {
+//     enabled: boolean
+//   }
+//   compress?: {
+//     enabled: boolean
+//   }
+//   extension: {
+//     extension: 'jpg' | 'png' | 'webp'
+//   }
+// }
 export default function FFmpegConverter(): ReactElement {
   const [selectedFiles, setSelectedFiles] = useState<string[]>([])
-  const [config, setConfig] = useState<configType>({
-    rotate: {
-      enabled: false
-    },
-    compress: {
-      enabled: false
-    },
-    extension: {
-      extension: 'jpg'
-    }
-  })
+  // const [config, setConfig] = useState<configType>({
+  //   rotate: {
+  //     enabled: false
+  //   },
+  //   compress: {
+  //     enabled: false
+  //   },
+  //   extension: {
+  //     extension: 'jpg'
+  //   }
+  // })
 
   return (
     <div className={styles.container}>

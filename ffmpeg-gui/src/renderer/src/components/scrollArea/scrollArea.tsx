@@ -3,19 +3,22 @@ import { ScrollArea } from 'radix-ui'
 import styles from './scrollArea.module.css'
 import { StackIcon } from '@radix-ui/react-icons'
 
-const TAGS = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`)
-
-const ScrollAreaComponent = (): React.ReactElement => (
+const ScrollAreaComponent = ({
+  selectedFiles
+}: {
+  selectedFiles: string[]
+}): React.ReactElement => (
   <ScrollArea.Root className={styles.Root}>
     <ScrollArea.Viewport className={styles.Viewport}>
       <div style={{ padding: '15px 20px' }}>
         <div className={styles.Text}>
           <StackIcon></StackIcon>
           Selected files
+          {selectedFiles.length}
         </div>
-        {TAGS.map((tag) => (
-          <div className={styles.Tag} key={tag}>
-            {tag}
+        {selectedFiles.map((file) => (
+          <div className={styles.Tag} key={`key_${file}`}>
+            {file};
           </div>
         ))}
       </div>
