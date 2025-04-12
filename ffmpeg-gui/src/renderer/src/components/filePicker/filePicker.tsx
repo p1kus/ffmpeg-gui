@@ -1,7 +1,9 @@
 import { ReactElement } from 'react'
+import styles from '../button.module.css'
+import { PlusIcon } from '../icons/plusIcon'
 
 interface filePropsType {
-  selectedFiles: string[]
+  selectedFiles?: string[]
   setSelectedFiles: React.Dispatch<React.SetStateAction<string[]>>
 }
 
@@ -19,15 +21,14 @@ export default function FilePicker({
       console.error(error)
     }
   }
-  const clearSelected = (): void => {
-    selectedFiles.length = 0
-    console.log(selectedFiles)
-  }
 
   return (
-    <div>
-      <button onClick={handleFilePicker}>Upload files</button>
-      {selectedFiles.length > 0 && (
+    <div className={styles.buttonContainer}>
+      <button className={styles.button} onClick={handleFilePicker}>
+        Add files
+        <PlusIcon></PlusIcon>
+      </button>
+      {selectedFiles && (
         <div>
           <h3>Selcted files:</h3>
           <ul>
@@ -37,7 +38,7 @@ export default function FilePicker({
           </ul>
         </div>
       )}
-      <button onClick={clearSelected}>Clear</button>
+      {/* <button onClick={clearSelected}>Clear</button> */}
     </div>
   )
 }

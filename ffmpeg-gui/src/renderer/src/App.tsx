@@ -1,18 +1,16 @@
-import electronLogo from './assets/electron.svg'
 import FFmpegConverter from './components/FFmpegConverter'
+import styles from './App.module.css'
+import { ReactElement } from 'react'
 
-function App(): JSX.Element {
+function App(): ReactElement {
   return (
-    <>
-      <img alt="logo" className="logo" src={electronLogo} />
-      <div className="text">
-        Image conversion using <span className="react">FFmpeg</span>
+    <div className={styles.container}>
+      <div className={styles.inputSection}>
+        <div className="actions">
+          <FFmpegConverter></FFmpegConverter>
+        </div>
       </div>
-      <div className="actions">
-        <FFmpegConverter></FFmpegConverter>
-        <div className="action"></div>
-      </div>
-    </>
+    </div>
   )
 }
 

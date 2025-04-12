@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .fileContainer {
+    .fileContainerTitle {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    display: flex;
+    padding: 24px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    height: 550px;
+    width: 250px;
+    background: white;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08); /* Soft, airy shadow */
+    transition: box-shadow 0.2s ease;
+    border-radius: 8px;
+    color: black;
+    .runBtn {
+      width: 100%;
+      .runBtnWithConfig {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}

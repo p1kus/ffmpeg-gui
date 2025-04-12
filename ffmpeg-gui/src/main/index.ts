@@ -60,9 +60,9 @@ app.whenReady().then(() => {
     return result
   })
 
-  ipcMain.handle('run-ffmpeg', async (_event, inputFile: string, outputFile: string) => {
+  ipcMain.handle('run-ffmpeg', async (_event, inputFile: string, outputFile: string, options) => {
     try {
-      return await runFFmpeg(inputFile, outputFile)
+      return await runFFmpeg(inputFile, outputFile, ...options)
     } catch (error) {
       return `Error: ${error}`
     }

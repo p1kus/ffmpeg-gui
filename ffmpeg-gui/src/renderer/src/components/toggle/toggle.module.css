@@ -1,0 +1,27 @@
+.Toggle {
+  all: unset;
+  background-color: white;
+  color: black;
+  height: 40px;
+  width: 55px;
+  border-radius: 6px;
+  display: flex;
+  font-size: 15px;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  border: 1px solid oklch(0.872 0.01 258.338);
+  transition:
+    background-color 0.5s,
+    opacity 0.2s;
+  &:hover {
+    opacity: 0.7;
+  }
+  &[data-state='on'] {
+    background-color: black;
+    color: white;
+  }
+  &:focus {
+  }
+}

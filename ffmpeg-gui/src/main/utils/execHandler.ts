@@ -1,10 +1,14 @@
 import { spawn } from 'child_process'
 import path from 'path'
 
-export default function runFFmpeg(inputFile: string, outputFile: string): void {
+export default function runFFmpeg(inputFile: string, outputFile: string, ...options): void {
   const exePath = path.join(process.env.HOME || '', 'scripts', 'ffmpeg')
+  console.log('Options: ' + options)
   console.log(exePath)
-  const ffmpegProcess = spawn(exePath, ['-i', inputFile, outputFile])
+  const fullCommand = `${exePath} -i "${inputFile}" -y -vf ${options ? options : ''} "${outputFile}"`
+  console.log('Full FFmpeg command:', fullCommand)
+  const ffmpegProcess = spawn(exePath, ['-i', inputFile, '-y', ...(options || ''), outputFile])
+  console.log(ffmpegProcess)
   ffmpegProcess.stdout.on('data', (data) => {
     console.log(data)
   })

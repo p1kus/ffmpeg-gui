@@ -1,4 +1,5 @@
 import { ReactElement, useState } from 'react'
+import styles from '../button.module.css'
 
 interface filePropsType {
   selectedFiles: string[]
@@ -13,7 +14,10 @@ export default function RunFFmpeg(selectedFiles: filePropsType): ReactElement {
       console.log(inputFile)
       const outputFile = inputFile.replace(/\.[^/.]+$/, '') + '_converted.jpg'
       console.log(outputFile)
-      const result = await window.electronAPI.runFFmpeg(inputFile, outputFile)
+      const result = await window.electronAPI.runFFmpeg(inputFile, outputFile, [
+        `-vf`,
+        'transpose=0'
+      ])
       setOutput(result)
       console.log('FFmpeg output:', output)
     } catch (error) {
@@ -22,8 +26,10 @@ export default function RunFFmpeg(selectedFiles: filePropsType): ReactElement {
   }
 
   return (
-    <div>
-      <button onClick={handleRunFFmpeg}>Convert Image</button>
+    <div className={styles.buttonContainer}>
+      <button className={styles.button} onClick={handleRunFFmpeg}>
+        Convert
+      </button>
       <pre>{output}</pre>
     </div>
   )

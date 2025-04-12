@@ -12,8 +12,8 @@ if (process.contextIsolated) {
     contextBridge.exposeInMainWorld('electron', electronAPI)
     contextBridge.exposeInMainWorld('api', api)
     contextBridge.exposeInMainWorld('electronAPI', {
-      runFFmpeg: (inputFile: string, outputFile: string) =>
-        ipcRenderer.invoke('run-ffmpeg', inputFile, outputFile),
+      runFFmpeg: (inputFile: string, outputFile: string, options) =>
+        ipcRenderer.invoke('run-ffmpeg', inputFile, outputFile, options),
       openFileDialog: (options?: Electron.OpenDialogSyncOptions) =>
         ipcRenderer.invoke('open-file-dialog', options)
     })

@@ -5,8 +5,20 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url('./wavy-lines.svg');
-  background-size: cover;
+  background-color: oklch(0.373 0.034 259.733);
+  background: #0f0c29; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #24243e,
+    #302b63,
+    #0f0c29
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #24243e,
+    #302b63,
+    #0f0c29
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   user-select: none;
 }
 
@@ -31,11 +43,11 @@ code {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 80px;
+  height: 100vh;
+  width: 100vw;
 }
 
 .logo {
-  margin-bottom: 20px;
   -webkit-user-drag: none;
   height: 128px;
   width: 128px;
