@@ -1,0 +1,5 @@
+:root {
+  --primary-color: #ffff;
+  --background-color: #fff;
+  --accent-color: oklch(0.511 0.262 276.966);
+}

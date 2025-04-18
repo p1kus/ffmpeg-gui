@@ -1,6 +1,7 @@
 import FFmpegConverter from './components/FFmpegConverter'
 import styles from './App.module.css'
 import { ReactElement } from 'react'
+import Footer from './components/footer/footer'
 
 function App(): ReactElement {
   return (
@@ -8,6 +9,7 @@ function App(): ReactElement {
       <div className={styles.inputSection}>
         <div className="actions">
           <FFmpegConverter></FFmpegConverter>
+          <Footer></Footer>
         </div>
       </div>
     </div>

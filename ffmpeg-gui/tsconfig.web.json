@@ -8,7 +8,9 @@
   ],
   "compilerOptions": {
     "composite": true,
-    "jsx": "react-jsx",
+    "target": "ES2023",
+    "lib": ["ES2023"],
+   "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@renderer/*": [

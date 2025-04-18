@@ -64,6 +64,9 @@ const PopoverDemo = (): React.ReactElement => {
               <ToggleBtn onClick={toggleRotate} pressed={config.rotate?.enabled} label="Rotate">
                 <DimensionsIcon></DimensionsIcon>
               </ToggleBtn>
+              <input type="text" name="" id="" />
+              <p>x</p>
+              <input type="text" name="" id="" />
             </fieldset>
             <fieldset className={styles.Fieldset}>
               <label className={styles.Label} htmlFor="maxHeight">

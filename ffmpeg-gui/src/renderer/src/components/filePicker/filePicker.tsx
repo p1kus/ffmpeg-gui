@@ -1,22 +1,19 @@
 import { ReactElement } from 'react'
 import styles from '../button.module.css'
 import { PlusIcon } from '../icons/plusIcon'
-import { Virtuoso } from 'react-virtuoso'
 
-interface filePropsType {
+export interface filePropsType {
   selectedFiles?: string[]
   setSelectedFiles: React.Dispatch<React.SetStateAction<string[]>>
 }
 
-export default function FilePicker({
-  selectedFiles,
-  setSelectedFiles
-}: filePropsType): ReactElement {
+export default function FilePicker({ setSelectedFiles }: filePropsType): ReactElement {
   const handleFilePicker = async (): Promise<void> => {
     try {
       const result = await window.electronAPI.openFileDialog()
       if (!result.canceled) {
-        setSelectedFiles(result.filePaths)
+        const filenames = await window.electronAPI.getFilenames(result.filePaths)
+        setSelectedFiles(filenames)
       }
     } catch (error) {
       console.error(error)
@@ -29,17 +26,6 @@ export default function FilePicker({
         Add files
         <PlusIcon></PlusIcon>
       </button>
-      {selectedFiles && (
-        <div>
-          <h3>Selcted files:</h3>
-          <ul>
-            {selectedFiles.map((file, index) => (
-              <li key={index}>{file}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {/* <button onClick={clearSelected}>Clear</button> */}
     </div>
   )
 }

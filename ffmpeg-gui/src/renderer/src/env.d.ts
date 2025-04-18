@@ -5,6 +5,7 @@ export interface ElectronAPI {
   openFileDialog: (
     options?: Electron.OpenDialogSyncOptions
   ) => Promise<Electron.OpenDialogReturnValue>
+  getFilenames: (filePaths: string[]) => Promise<string[]>
 }
 
 declare global {

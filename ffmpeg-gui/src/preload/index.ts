@@ -15,7 +15,8 @@ if (process.contextIsolated) {
       runFFmpeg: (inputFile: string, outputFile: string, options) =>
         ipcRenderer.invoke('run-ffmpeg', inputFile, outputFile, options),
       openFileDialog: (options?: Electron.OpenDialogSyncOptions) =>
-        ipcRenderer.invoke('open-file-dialog', options)
+        ipcRenderer.invoke('open-file-dialog', options),
+      getFilenames: (fileNames: string[]) => ipcRenderer.invoke('get-filenames', fileNames)
     })
   } catch (error) {
     console.error(error)

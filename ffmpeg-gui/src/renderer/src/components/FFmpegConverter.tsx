@@ -19,17 +19,6 @@ import ScrollAreaComponent from './scrollArea/scrollArea'
 // }
 export default function FFmpegConverter(): ReactElement {
   const [selectedFiles, setSelectedFiles] = useState<string[]>([])
-  // const [config, setConfig] = useState<configType>({
-  //   rotate: {
-  //     enabled: false
-  //   },
-  //   compress: {
-  //     enabled: false
-  //   },
-  //   extension: {
-  //     extension: 'jpg'
-  //   }
-  // })
 
   return (
     <div className={styles.container}>
@@ -38,17 +27,24 @@ export default function FFmpegConverter(): ReactElement {
           <h3>FFmpeg converter</h3>
           <HorizontalLine></HorizontalLine>
         </div>
+        {selectedFiles.length === 0 && <p>Add image or video files</p>}
         <FilePicker setSelectedFiles={setSelectedFiles}></FilePicker>
-        <ScrollAreaComponent selectedFiles={selectedFiles}></ScrollAreaComponent>
-        <div className={styles.runBtn}>
-          <HorizontalLine></HorizontalLine>
-          <div className={styles.runBtnWithConfig}>
-            <Configuration></Configuration>
-            <RunFFmpeg selectedFiles={selectedFiles}></RunFFmpeg>
+        {selectedFiles.length > 0 && (
+          <ScrollAreaComponent
+            selectedFiles={selectedFiles}
+            setSelectedFiles={setSelectedFiles}
+          ></ScrollAreaComponent>
+        )}
+        {selectedFiles.length > 0 && (
+          <div className={styles.runBtn}>
+            <HorizontalLine></HorizontalLine>
+            <div className={styles.runBtnWithConfig}>
+              <Configuration></Configuration>
+              <RunFFmpeg selectedFiles={selectedFiles}></RunFFmpeg>
+            </div>
           </div>
-        </div>
+        )}
       </div>
-      <div className={styles.selectedFilesContainer}></div>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
 import { join } from 'path'
+import path from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import runFFmpeg from './utils/execHandler'
@@ -66,6 +67,9 @@ app.whenReady().then(() => {
     } catch (error) {
       return `Error: ${error}`
     }
+  })
+  ipcMain.handle('get-filenames', (event, filePaths) => {
+    return filePaths.map((filePath) => path.basename(filePath))
   })
 
   createWindow()
